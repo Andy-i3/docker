@@ -1,0 +1,109 @@
+    1  poweroff
+    2  sudo service docker status
+    3  sudo systemctl status docker.service 
+    4  reboot
+    5  git
+    6  ls -la
+    7  git clone https://github.com/a0z9/docker.git
+    8  mc
+    9  nano .bashrc 
+   10  vim .nano
+   11  vim .bashrc 
+   12  mc
+   13  cd docker/scripts/
+   14  ./install-docker
+   15  docker ps -a
+   16  sudo /etc/docker/
+   17  sudo ls /etc/docker/
+   18  docker config ls
+   19  docker search --help
+   20  docker search getting
+   21  docker search getting --filter stars=10
+   22  docker run -d docker/getting-started
+   23  docker ps
+   24  docker run -d --name gs1 -p 8080:80 docker/getting-started
+   25  docker ps
+   26  docker rm 5
+   27  docker rm -f 5
+   28  docker ps
+   29  docker images
+   30  docker stop b
+   31  docker start b
+   32  docker pause gs1 
+   33  docker ps -a
+   34  docker unpause gs1 
+   35  docker search busybox
+   36  docker images
+   37  docker pull busybox
+   38  docker images
+   39  docker ps -a
+   40  docker create --name bb1 -it busybox
+   41  docker ps -a
+   42  docker start bb1
+   43  docker ps -a
+   44  docker exec bb1 ls
+   45  docker exec bb1 id
+   46  docker ps -a
+   47  docker logs gs1 
+   48  docker ps
+   49  docker attach bb1 
+   50  docker ps
+   51  docker attach bb1 
+   52  docker ps
+   53  docker ps -a
+   54  docker start bb1
+   55  docker ps -a
+   56  docker attach bb1 --detach-keys 'ctrl-b'
+   57  docker start bb1 sh
+   58  docker start bb1
+   59  docker attach bb1 sh
+   60  docker exec bb1 sh ls
+   61  docker exec bb1 sh
+   62  docker exec bb1 ls -la
+   63  docker exec bb1 sh -c 'ls -la'
+   64  docker exec bb1 ls -la
+   65  docker exec bb1 mkdir /aa
+   66  docker exec bb1 mkdir /a1 /a2
+   67  docker exec bb1 mkdir /a3 /a4 /a5
+   68  docker exec bb1 ls -la
+   69  docker exec bb1 rm -rf a*
+   70  docker exec bb1 ls -la
+   71  docker exec bb1 sh -c 'rm -rf /a?*'
+   72  docker exec bb1 ls -la
+   73  docker exec bb1 sh -c 'ls -la /bin'
+   74  docker images
+   75  docker pull busybox@sha256:4cee1979ba0bf7db9fc5d28fb7b798ca69ae95a47c5fecf46327720df4ff352d
+   76  docker pull busybox:1.27.0
+   77  docker images
+   78  docker tag 5b busybox:1.28.0-my
+   79  docker images
+   80  docker tag 5b blabla:1.2.3
+   81  docker images
+   82  docker inspect busybox
+   83  cd docker
+   84  mkdir app1
+   85  vim dockerfile
+   86  cd app1
+   87  ls
+   88  docker build --help
+   89  docker build -t mybusybox:1.0.0 .
+   90  docker images
+   91  ls
+   92  cd ..
+   93  docker build -t mybusybox:2.0.0 ./app1
+   94  docker images
+   95  docker inspect mybusybox:1.0.0 
+   96  cd app1
+   97* 
+   98  docker build -t mybusybox:3.0.0 .
+   99  vim dockerfile 
+  100  docker build -t mybusybox:3.0.0 .
+  101  docker images
+  102  docker run --name bb2 -dit mybusybox:3.0.0
+  103  docker ps
+  104  docker attach bb2
+  105  cd ..
+  106  mkdir history
+  107  history -w
+  108  history
+  109  history > history/DAY-docker

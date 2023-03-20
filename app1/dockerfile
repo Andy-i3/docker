@@ -1,0 +1,18 @@
+FROM busybox
+
+LABEL maintainer="a0z9@rambler.ru"
+
+RUN mkdir /subdir1 && echo `date` > /subdir1/datefile
+
+ENV DATA extra training data
+ENV LOGLEVEL INFO
+
+RUN date
+
+WORKDIR /app
+
+COPY service.conf .
+
+
+
+
