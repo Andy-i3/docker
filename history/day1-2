@@ -1,0 +1,223 @@
+    1  poweroff
+    2  sudo service docker status
+    3  sudo systemctl status docker.service 
+    4  reboot
+    5  git
+    6  ls -la
+    7  git clone https://github.com/a0z9/docker.git
+    8  mc
+    9  nano .bashrc 
+   10  vim .nano
+   11  vim .bashrc 
+   12  mc
+   13  cd docker/scripts/
+   14  ./install-docker
+   15  docker ps -a
+   16  sudo /etc/docker/
+   17  sudo ls /etc/docker/
+   18  docker config ls
+   19  docker search --help
+   20  docker search getting
+   21  docker search getting --filter stars=10
+   22  docker run -d docker/getting-started
+   23  docker ps
+   24  docker run -d --name gs1 -p 8080:80 docker/getting-started
+   25  docker ps
+   26  docker rm 5
+   27  docker rm -f 5
+   28  docker ps
+   29  docker images
+   30  docker stop b
+   31  docker start b
+   32  docker pause gs1 
+   33  docker ps -a
+   34  docker unpause gs1 
+   35  docker search busybox
+   36  docker images
+   37  docker pull busybox
+   38  docker images
+   39  docker ps -a
+   40  docker create --name bb1 -it busybox
+   41  docker ps -a
+   42  docker start bb1
+   43  docker ps -a
+   44  docker exec bb1 ls
+   45  docker exec bb1 id
+   46  docker ps -a
+   47  docker logs gs1 
+   48  docker ps
+   49  docker attach bb1 
+   50  docker ps
+   51  docker attach bb1 
+   52  docker ps
+   53  docker ps -a
+   54  docker start bb1
+   55  docker ps -a
+   56  docker attach bb1 --detach-keys 'ctrl-b'
+   57  docker start bb1 sh
+   58  docker start bb1
+   59  docker attach bb1 sh
+   60  docker exec bb1 sh ls
+   61  docker exec bb1 sh
+   62  docker exec bb1 ls -la
+   63  docker exec bb1 sh -c 'ls -la'
+   64  docker exec bb1 ls -la
+   65  docker exec bb1 mkdir /aa
+   66  docker exec bb1 mkdir /a1 /a2
+   67  docker exec bb1 mkdir /a3 /a4 /a5
+   68  docker exec bb1 ls -la
+   69  docker exec bb1 rm -rf a*
+   70  docker exec bb1 ls -la
+   71  docker exec bb1 sh -c 'rm -rf /a?*'
+   72  docker exec bb1 ls -la
+   73  docker exec bb1 sh -c 'ls -la /bin'
+   74  docker images
+   75  docker pull busybox@sha256:4cee1979ba0bf7db9fc5d28fb7b798ca69ae95a47c5fecf46327720df4ff352d
+   76  docker pull busybox:1.27.0
+   77  docker images
+   78  docker tag 5b busybox:1.28.0-my
+   79  docker images
+   80  docker tag 5b blabla:1.2.3
+   81  docker images
+   82  docker inspect busybox
+   83  cd docker
+   84  mkdir app1
+   85  vim dockerfile
+   86  cd app1
+   87  ls
+   88  docker build --help
+   89  docker build -t mybusybox:1.0.0 .
+   90  docker images
+   91  ls
+   92  cd ..
+   93  docker build -t mybusybox:2.0.0 ./app1
+   94  docker images
+   95  docker inspect mybusybox:1.0.0 
+   96  cd app1
+   97* 
+   98  docker build -t mybusybox:3.0.0 .
+   99  vim dockerfile 
+  100  docker build -t mybusybox:3.0.0 .
+  101  docker images
+  102  docker run --name bb2 -dit mybusybox:3.0.0
+  103  docker ps
+  104  docker attach bb2
+  105  cd ..
+  106  mkdir history
+  107  history -w
+  108  history
+  109  history > history/DAY-docker
+  110  git add .
+  111  git config --global user.name Andres
+  112  git config --global user.email a0z9@rambler.ru
+  113  git commit -am 'docker file'
+  114  git push
+  115  docler pull
+  116  docker pull
+  117  git pull 
+  118  cp -R . ../docker2
+  119  ls -la ../docker2
+  120  cd ..
+  121  ls
+  122  cd docker
+  123  git pull
+  124  docker images
+  125  docker tag mybusybox:3.0.0 a0z9/gsm2023:3.0.0
+  126  docker images
+  127  docker login
+  128  docker push a0z9/gsm2023:3.0.0
+  129  docker search gsm2023
+  130  docker images
+  131  docker rmi c1
+  132  docker rm -f e4
+  133  docker rmi c1 -f
+  134  docker images
+  135  docker rmi 28
+  136  docker rmi 28 -f
+  137  docker images
+  138  docker rmi blabla
+  139  docker rmi blabla:1.2.3
+  140  docker images
+  141  docker gsm2023
+  142  docker search gsm2023
+  143  docker run -dit --name bb2 a0z9/gsm2023:3.0.0 
+  144  docker ps
+  145  history -w
+  146  cd tars
+  147  mkdir tars
+  148  cd tars/
+  149  vim hello.c
+  150  c++ hello.c -o hello1
+  151  ./hello1 
+  152  c++ hello.c -o hello2 --static
+  153  ls
+  154  ls -la
+  155  tar -cf hello.tar hello1 hello2
+  156  tar -vf hello.tar
+  157  tar -vf hello.tar hello1
+  158  docker import --help
+  159  tar -tf hello.tar
+  160  mc
+  161  docker import hello.tar hello:1.0
+  162  docker images
+  163  docker run --rm -it hello:1.0 hello
+  164  docker run --rm -it hello:1.0 hello1
+  165  docker run --rm -it hello:1.0 hello2
+  166  docker run --rm -it hello:1.0 ./hello2
+  167  docker run --rm -it hello:1.0 ./hello1
+  168  docker ps
+  169  docker exec bb2 mkdir 1 2 3 4
+  170  docker cp hello.tar bb2:/2
+  171  docker exec bb2 ls /2
+  172  docker exec bb2 ls /
+  173  docker exec bb2 rm /2
+  174  docker cp hello.tar bb2:/2/
+  175  docker cp hello.tar bb2:/app/
+  176  docker exec bb2 ls /app
+  177  docker commit bb2 bbox3:1.0
+  178  docker images
+  179  docker inspect bbox3:1.0
+  180  docker export bb2 -o bb2.tar
+  181  tar -tf bb2.tar 
+  182  docker save bbox3:1.0 -o bbox3.img.tar
+  183  tar -tf bbox3.img.tar 
+  184  mc
+  185  tar -xvf bbox3.img.tar 807cad24da55e3aac7b4feb4533c69f4ecc4e8e7f699dbc40b45370cb87ec26c.json 
+  186  cat 807cad24da55e3aac7b4feb4533c69f4ecc4e8e7f699dbc40b45370cb87ec26c.json | jq
+  187  sudo apt install jq
+  188  cat 807cad24da55e3aac7b4feb4533c69f4ecc4e8e7f699dbc40b45370cb87ec26c.json | jq
+  189  sha256sum 807cad24da55e3aac7b4feb4533c69f4ecc4e8e7f699dbc40b45370cb87ec26c.json 
+  190  docker images
+  191  docker rmi 807
+  192  docker images
+  193  ls
+  194  docker load --input bbox3.img.tar 
+  195  docker images
+  196  cd ..
+  197* 
+  198  history > history/day1-2
+  199  docker ps
+  200  sudo service docker restart 
+  201  docker ps
+  202  docker ps -a
+  203  docker ps -aq
+  204  docker start  $(docker ps -aq)
+  205  docker ps -aq
+  206  docker ps -a
+  207  docker update bb2 --restart always 
+  208  docker update bb1 --restart unless-stopped 
+  209  docker inspect bb2
+  210* docker inspect bb2
+  211  docker inspect bb2 | grep Restart
+  212  docker inspect bb2 | less
+  213  docker inspect bb1 | less
+  214  sudo service docker restart 
+  215  docker ps -a
+  216  docker ps -q
+  217  docker stop $(docker ps -q)
+  218  docker ps
+  219  docker ps -a
+  220  sudo service docker restart 
+  221  docker ps -a
+  222  docker logout 
+  223  history > history/day1-2
