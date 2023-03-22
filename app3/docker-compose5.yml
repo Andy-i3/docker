@@ -41,12 +41,3 @@ services:
 volumes:
   vol1:
 
-networks:
-  default:
-    name: net1
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.55.0/24
-          gateway: 192.168.55.254    
-
