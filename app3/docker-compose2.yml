@@ -8,10 +8,7 @@ services:
     environment:
       - DATA=test data
       - VERSION=1.2.3
-    depends_on: 
-      - wapp
-
-
+ 
   wapp:
     image: a0z9/dock:wapp.0.5
     ports:
