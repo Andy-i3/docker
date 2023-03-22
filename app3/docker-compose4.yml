@@ -9,8 +9,7 @@ services:
       - DATA=test data
       - VERSION=1.2.3
     depends_on: 
-      wapp:
-        condition: service_healthy
+      - wapp
 
 
   wapp:
@@ -21,12 +20,7 @@ services:
       - DOCK_HOST=$HOSTNAME
     volumes:
       - vol1:/var/data        
-    healthcheck:
-      test: wget -q --spider localhost:8080
-      interval: 4s
-      timeout: 3s
-      retries: 3
-        
+
   bb:
     image: busybox
     command: dd if=/dev/random of=/dev/null bs=4096
